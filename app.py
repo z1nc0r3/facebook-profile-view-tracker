@@ -7,7 +7,7 @@ app = Flask(__name__)
 logging.basicConfig(filename="profile_views.log", level=logging.INFO)
 
 
-@app.route("/tracker")
+@app.route("/")
 def tracker():
     # Log the request details
     user_agent = request.headers.get("User-Agent")
