@@ -12,7 +12,9 @@ def tracker():
     # Log the request details
     user_agent = request.headers.get("User-Agent")
     ip_address = request.remote_addr
-    logging.info(f"Profile view from IP: {ip_address}, User-Agent: {user_agent}")
+    
+    if not "facebookexternalhit" in user_agent:
+        logging.info(f"Profile view from IP: {ip_address}, User-Agent: {user_agent}")
 
     # Serve the tracking image
     return send_file("i_see_you.jpeg", mimetype="image/jpeg")
